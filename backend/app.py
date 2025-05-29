@@ -16,7 +16,12 @@ def create_app():
     CORS(app)
 
     db.init_app(app)
-
+    
+    # Home route
+    @app.route('/')
+    def home():
+        return "Server is running!"
+    
     app.register_blueprint(menu_bp, url_prefix='/api/menu')
     app.register_blueprint(orders_bp, url_prefix='/api/orders')
 

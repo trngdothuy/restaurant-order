@@ -137,20 +137,29 @@ api/orders.py
 ```bash
 from flask import Blueprint, request, jsonify
 from models.Order import Order
-from app import db
+from extensions import db
+import numpy as np
 
 orders_bp = Blueprint('orders', __name__)
 
-@orders_bp.route('/', methods=['POST'])
+# Create a new order
+@orders_bp.route('/', methods=['POST'], strict_slashes=False)
 def place_order():
-    data = request.json
+    if not request.is_json:
+        return jsonify({"error": "Missing or invalid JSON"}), 400
+    data = request.get_json()
+    print("Received JSON", data)
+
     table_number = data.get('table_number')
     items = data.get('items')
     total_price = data.get('total_price')
 
+    if not table_number or not items or not total_price:
+        return jsonify({'error': 'Missing required fields'}), 400
+
     new_order = Order(
         table_number=table_number,
-        items=str(items),
+        items=items, # a json list or string
         total_price=total_price,
         status='pending'
     )
@@ -158,7 +167,9 @@ def place_order():
     db.session.add(new_order)
     db.session.commit()
 
-    return jsonify({'message': 'Order placed successfully', 'order_id': new_order.id})
+    return jsonify({'message': 'Order placed successfully', 'order_id': new_order.id}), 201
+
+    # Get all order and get 1 order by ID
 ```
 
 ## Step 8️⃣: Save Requirements
@@ -337,3 +348,4 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from app import app
 ```
+
