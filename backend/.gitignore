@@ -1,0 +1,96 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environment
+venv/
+ENV/
+env/
+.venv/
+.env/
+env.bak/
+venv.bak/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Flask instance folder
+instance/
+
+# Local environment variables
+.env
+.env.*
+
+# IDEs / Editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+
+# SQLite database (optional, if you don’t want to commit DBs)
+*.db
+*.sqlite3
+
+# Log files
+*.log
+
+# Pyre type checker
+.pyre/
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pytype
+.pytype/
+
+# PyCharm
+*.iml
+
+# Other
+*.swp
+

@@ -11,41 +11,61 @@ It’s a:
 # 🏗️ Updated Architecture
 
 ```bash
-📦 restaurant-website
+📦 restaurant-order
 ├── 📂 backend
 │   ├── app.py
 │   ├── 📂 api
 │   │   ├── menu.py           # GET menu
 │   │   ├── orders.py         # POST orders
-│   │   ├── tables.py         # Table info (optional)
+│   │   ├── tables.py         # Table info (optionalm for future)
 │   ├── 📂 models
 │   │   ├── MenuItem.py
 │   │   ├── Order.py
 │   │   ├── Table.py          # Table QR code mapping (optional)
+│   ├── 📂 scripts
+│   │   ├── add_dish.py # to add first 2 dishes
+│   │   └── init_db.py # to restart db
 │   ├── 📂 services
 │   │   ├── order_service.py
-│   │   └── menu_service.py
+│   │   └── menu_service.py # optional
+│   ├── 📂 tests
+│   │   ├── __init__.py
+│   │   └── test_api.py # optional
 │   ├── 📂 utils
 │   ├── config.py
 │   ├── requirements.txt
 │   └── .env
+│   └── config.py
+│   └── extensions.py # connect alchemy
+│   └── README.md
+│   └── requirements.txt
 ├── 📂 frontend
 │   ├── public/
 │   ├── src/
-│   │   ├── 📂 components
-│   │   │   ├── MenuItemCard.js
-│   │   │   ├── OrderForm.js
-│   │   ├── 📂 pages
+│   │   ├── 📂 api # Axios API logic (e.g., api.js)
+│   │   │   ├── api.js
+│   │   ├── 📂 components # React components (Menu, OrderForm, etc.)
+│   │   │   ├── Menu.css
+│   │   │   ├── Menu.js
+# │   │   │   ├── OrderForm.js
+│   │   ├── 📂 pages # Page components (Home, Orders)
 │   │   │   ├── HomePage.js
 │   │   │   ├── MenuPage.js
 │   │   │   ├── OrderPage.js
 │   │   ├── 📂 services
 │   │   │   ├── api.js         # Fetches menu, orders
+│   │   ├── 📂 utils
 │   │   ├── App.js
+│   │   ├── index.css
 │   │   ├── index.js
 │   │   └── App.css
+│   ├── .gitignore
 │   ├── package.json
-│   └── .env
+│   ├── package-lock.json
+│   └── README.md
+└── node_modules/
+└── package-lock.json
+└── package.json
 └── README.md
 ```
 
@@ -115,6 +135,16 @@ class Order(db.Model):
 GET /api/menu – Get menu
 
 POST /api/orders – Submit new order (with table number)
+
+DELETE /api/menu/<id> → Delete menu item
+
+PUT /api/menu/<id> → Update menu item
+
+POST /api/orders → Place order
+
+GET /api/orders → View orders
+
+PUT /api/orders/<id> → Update order status
 
 ✅ Frontend:
 

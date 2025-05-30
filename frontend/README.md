@@ -21,11 +21,14 @@ Clean up (optional):
 Here’s a clean, scalable structure:
 
 ```bash
-restaurant-order-frontend/
+frontend/
 ├── public/
 ├── src/
 │   ├── api/              # Axios API logic (e.g., api.js)
+│   │   ├── api.js
 │   ├── components/       # React components (Menu, OrderForm, etc.)
+│   │   ├── Menu.css
+│   │   ├── Menu.js
 │   ├── pages/            # Page components (Home, Orders)
 │   ├── utils/            # Helper functions
 │   ├── App.js            # Main App component
@@ -163,9 +166,42 @@ In the same folder as Menu.js, create Menu.css:
   color: #333;
 }
 ```
-# ✅ 8 
+# ✅ 8 Create OrderForm.js to place orders
 
+1️⃣ Routing / Navigation
+- Use React Router to toggle between Menu, OrderForm, and Admin views.
+- Example routes:
+/ → Menu
+/order → OrderForm
+/admin → Admin
 
-✅ Create OrderForm.js to place orders
-✅ Create Admin.js to add/delete items
-✅ Style it nicely (CSS frameworks like Tailwind, Bootstrap, or plain CSS)
+2️⃣ OrderForm.js
+- Make a form that POSTs to your backend’s /api/orders endpoint.
+- Use fetch or Axios for the API call.
+- Display a success message when the order is placed.
+
+# ✅ 9 Create Admin.js to add/delete items
+
+- A form to add new menu items
+- List of items with delete buttons
+- Calls /api/menu (GET/POST/DELETE) endpoints
+
+# ✅ 10 Style it nicely (CSS frameworks like Tailwind, Bootstrap, or plain CSS)
+
+- Use Tailwind CSS, Bootstrap, or plain CSS.
+- Example:
+Tailwind:
+
+```bash
+npm install -D tailwindcss
+npx tailwindcss init
+```
+- Then in  CSS:
+
+```bash
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+- Or use Bootstrap via CDN in HTML.

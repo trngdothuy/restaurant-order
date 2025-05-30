@@ -19,21 +19,33 @@ pip install flask flask-cors flask-sqlalchemy python-dotenv
 ## Step 2️⃣: Set Up Project Structure
 
 ```bash
-backend/
-├── app.py
-├── config.py
-├── requirements.txt
-├── .env
-├── 📂 api
-│   ├── menu.py
-│   ├── orders.py
-├── 📂 models
-│   ├── MenuItem.py
-│   ├── Order.py
-├── 📂 services
-│   ├── order_service.py
-├── 📂 utils
-└── README.md
+├── 📂 backend
+│   ├── app.py
+│   ├── 📂 api
+│   │   ├── menu.py           # GET menu
+│   │   ├── orders.py         # POST orders
+│   │   ├── tables.py         # Table info (optionalm for future)
+│   ├── 📂 models
+│   │   ├── MenuItem.py
+│   │   ├── Order.py
+│   │   ├── Table.py          # Table QR code mapping (optional)
+│   ├── 📂 scripts
+│   │   ├── add_dish.py # to add first 2 dishes
+│   │   └── init_db.py # to restart db
+│   ├── 📂 services
+│   │   ├── order_service.py
+│   │   └── menu_service.py # optional
+│   ├── 📂 tests
+│   │   ├── __init__.py
+│   │   └── test_api.py # optional
+│   ├── 📂 utils
+│   ├── config.py
+│   ├── requirements.txt
+│   └── .env
+│   └── config.py
+│   └── extensions.py # connect alchemy
+│   └── README.md
+│   └── requirements.txt
 ```
 
 ## Step 3️⃣: Create config.py
@@ -349,3 +361,16 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from app import app
 ```
 
+# Create .gitignore
+In backend project directory, create the file:
+```bash
+touch .gitignore
+```
+
+Open it in editor:
+```bash
+nano .gitignore
+```
+Edit content
+
+Save and exit (in nano: Ctrl+X, then Y, then Enter).
