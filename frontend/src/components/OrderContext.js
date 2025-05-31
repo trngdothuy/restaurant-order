@@ -3,7 +3,10 @@ import React, { createContext, useState, useEffect } from "react";
 export const OrderContext = createContext();
 
 export const OrderProvider = ({children}) => {
-    const [orderItems, setOrderItems] = useState([]);
+    const [orderItems, setOrderItems] = useState(() => {
+        const stored = localStorage.getItem("orderItems");
+        return stored ? JSON.parse(stored) : [];
+    });
 
     const addItemToOrder = (item, quantity) => {
         // check if item already in order
@@ -22,20 +25,38 @@ export const OrderProvider = ({children}) => {
     };
 
     useEffect(() => {
+        localStorage.setItem("orderItems", JSON.stringify(orderItems));
         console.log("Updated orderItems:", orderItems);
       }, [orderItems]);
     
-    const removeItemFromOrder = (id) => {
-        setOrderItems(orderItems.filter((i) => i.id !== id));
-    };
 
     const clearOrder = () => {
         setOrderItems([]);
     };
 
+    const removeItem = (itemId) => {
+        setOrderItems(orderItems.filter((item) => item.id !== itemId));
+    };
+
+    const increaseQuantity = (itemId) => {
+        setOrderItems(
+            orderItems.map((item) => item.id === itemId 
+            ? {...item, quantity: item.quantity + 1} 
+            : item)
+        );
+    };
+
+    const decreaseQuantity = (itemId) => {
+        setOrderItems(
+            orderItems.map((item) => item.id === itemId 
+            ? {...item, quantity: Math.max(item.quantity - 1, 1)} 
+            : item)
+        );
+    };
+
     return (
         <OrderContext.Provider 
-        value={{orderItems, addItemToOrder, removeItemFromOrder, clearOrder}}
+        value={{orderItems, addItemToOrder, removeItem, increaseQuantity, decreaseQuantity, clearOrder}}
         >
             {children}
         </OrderContext.Provider>

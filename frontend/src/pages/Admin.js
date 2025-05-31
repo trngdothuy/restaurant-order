@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { OrderContext } from './OrderContext';
+import { OrderContext } from '../components/OrderContext';
 import axios from "axios";
 
 const Admin = () => {

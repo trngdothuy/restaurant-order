@@ -1,10 +1,10 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Menu from './components/Menu';
-import OrderForm from './components/OrderForm';
-import Admin from './components/Admin';
-import NavBar from './NavBar';
+import Menu from './pages/Menu';
+import OrderPage from './pages/OrderPage';
+import Admin from './pages/Admin';
+import NavBar from './components/NavBar';
 
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
           <h1 className="text-xl font-bold">Welcome To Our Restaurant</h1>
           <Routes>
             <Route path="/" element={<Menu />} />
-            <Route path="/order" element={<OrderForm />} />
+            <Route path="/order" element={<OrderPage />} />
             <Route path="/admin" element={<Admin />} />
           </Routes>
         </Router>

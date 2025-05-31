@@ -27,9 +27,14 @@ frontend/
 │   ├── api/              # Axios API logic (e.g., api.js)
 │   │   ├── api.js
 │   ├── components/       # React components (Menu, OrderForm, etc.)
+│   │   ├── NavBar.js
+│   │   ├── OrderContext.js
+│   ├── pages/            # Page components (Home, Orders)
+│   │   ├── Admin.js
 │   │   ├── Menu.css
 │   │   ├── Menu.js
-│   ├── pages/            # Page components (Home, Orders)
+│   │   ├── OrderPage.js
+│   │   ├── OrderPage.css
 │   ├── utils/            # Helper functions
 │   ├── App.js            # Main App component
 │   ├── index.js          # Entry point

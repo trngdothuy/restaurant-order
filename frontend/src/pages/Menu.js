@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useContext} from 'react';
 import {fetchMenu} from '../api/api';
-import { OrderContext } from './OrderContext';
+import { OrderContext } from '../components/OrderContext';
 import './Menu.css';
 
 const Menu = () => {
@@ -43,6 +43,7 @@ const Menu = () => {
                         type="number"
                         min="1"
                         value={quantities[item.id] || 1}
+                        className="w-10 px-2 m-3"
                         onChange={(e) => handleQuantityChange(item.id, e.target.value)}
                         />
                         <button onClick={() => handleAddToOrder(item)}>Add to Order</button>
