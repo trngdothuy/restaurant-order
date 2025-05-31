@@ -46,6 +46,11 @@ def add_item():
         img_url = img_url
     )
     
+    # check if id is unique
+    # scan db to find id
+    # find => error
+    # not find => add
+    
     db.session.add(new_item)
     db.session.commit()
     

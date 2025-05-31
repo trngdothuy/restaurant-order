@@ -171,10 +171,10 @@ In the same folder as Menu.js, create Menu.css:
   color: #333;
 }
 ```
-# ✅ 8 Create OrderForm.js to place orders
+# ✅ 8 Create OrderPage.js to place orders
 
 1️⃣ Routing / Navigation
-- Use React Router to toggle between Menu, OrderForm, and Admin views.
+- Use React Router to toggle between Menu, OrderPage, and Admin views.
 - Example routes:
 / → Menu
 /order → OrderForm
@@ -187,9 +187,24 @@ In the same folder as Menu.js, create Menu.css:
 
 # ✅ 9 Create Admin.js to add/delete items
 
+
 - A form to add new menu items
-- List of items with delete buttons
+- List of items fetch from backend
+- Modify items (names, description, price, ... )
+- Delete items 
+
+
+- List of orders
+- Modify orders' status
 - Calls /api/menu (GET/POST/DELETE) endpoints
+
+What we need to set:
+- Menu Items
+- Form Data
+- Loading status + error
+
+Later:
+- Authorize as only staff can see
 
 # ✅ 10 Style it nicely (CSS frameworks like Tailwind, Bootstrap, or plain CSS)
 

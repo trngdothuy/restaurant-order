@@ -48,25 +48,20 @@ def test_delete_item(client):
     data = response.get_json() 
     assert data['message'] == "Item 100 deleted successfully"
     
-def test_update_item_price(client):
-    payload = {
-        "price": 14
-    }
-    
-    response = client.put("api/menu/4", json=payload)
-    assert response.status_code == 200
-    data = response.get_json()
-    assert data['message'] == "Item 4 price updated to 14"
-
 def test_update_item(client):
     payload = {
-        "img_url": "https://tiki.vn/blog/wp-content/uploads/2023/07/gioi-thieu-mon-pho-bo-1024x683.jpg"
+        "id": 5,
+        "name": "Bun Cha",
+        "description": "Thin rice noodles (bún) topped with smoky marinated pork, fresh herbs (mint, cilantro, basil). Served with a nước chấm (sweet-sour dipping sauce).",
+        "price": 13,
+        "category": "Main",
+        "img_url": "https://www.seriouseats.com/thmb/atsVhLwxdCWyX-QDuhOLhR0Kx4s=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20231204-SEA-VyTran-BunChaHanoi-18-e37d96a89a0f43d097e02311686290f2.jpg"
     }
     
-    response = client.put("api/menu/4", json=payload)
+    response = client.put(f"api/menu/{payload['id']}", json=payload)
     assert response.status_code == 200
     data = response.get_json()
-    assert data['message'] == "Item 4 updated successfully"
+    assert data['message'] == f"Item {payload['id']} updated successfully"
     
 def test_create_order(client):
     payload = {
