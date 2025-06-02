@@ -4,3 +4,4 @@ flask-sqlalchemy
 numpy
 python-dotenv
 pytest
+gunicorn
