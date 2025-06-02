@@ -14,7 +14,7 @@ load_dotenv()
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
-    CORS(app, origins=["https://15.237.118.207:3000"])
+    CORS(app)
 
     db.init_app(app)
     
@@ -33,5 +33,5 @@ if __name__ == '__main__':
     app = create_app()
     with app.app_context():
          db.create_all()
-    port = int(os.environ.get("PORT", 8080))
+    port = int(os.environ.get("PORT", 5000))
     app.run(debug=True,host="0.0.0.0", port=port)

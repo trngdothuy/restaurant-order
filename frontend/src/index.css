@@ -58,7 +58,8 @@ nav a:hover {
 
 nav {
   padding-top: 0.5em;
-  background: rgb(241, 239, 239);
+  background: rgb(227, 115, 4);
+  color: white;
   position: fixed;
   top: 0px;
   width: 100%;

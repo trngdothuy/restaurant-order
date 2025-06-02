@@ -43,3 +43,9 @@
     font-weight: bold;
     color: #333;
   }
+
+  .btn-add-to-cart {
+    background-color: rgba(58, 58, 228, 0.9);
+    color: white;
+    padding: 3px;
+    }

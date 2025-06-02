@@ -17,6 +17,8 @@ const AdminMenu = () => {
     const [error, setError] = useState(null);
     const [editingItem, setEditingItem] = useState(null);
 
+    const API_BASE_URL = process.env.REACT_APP_API_URL;
+
     // Fetch all menu items
     useEffect(() => {
         fetchMenuItems();
@@ -34,9 +36,11 @@ const AdminMenu = () => {
         console.log("Editing item:", editingItem);
         }, [editingItem]);
 
+    
+
     const fetchMenuItems = async () => {
         try {
-            const res = await axios.get('http://127.0.0.1:5000/api/menu');
+            const res = await axios.get(`${API_BASE_URL}/menu`);
             setMenuItems(res.data);
             console.log("menu items", menuItems);
         } catch (err) {
@@ -53,7 +57,7 @@ const AdminMenu = () => {
         setLoading(true);
         setError(null);
         try {
-            const res = await axios.post('http://127.0.0.1:5000/api/menu', {
+            const res = await axios.post(`${API_BASE_URL}/menu`, {
                 ...formData,
                 price: parseFloat(formData.price),
             });
@@ -75,7 +79,7 @@ const AdminMenu = () => {
 
     const handleDeleteItem = async (id) => {
         try {
-             await axios.delete(`http://127.0.0.1:5000/api/menu/${id}`);
+             await axios.delete(`${API_BASE_URL}/menu/${id}`);
             setMenuItems(menuItems.filter(item => item.id !== id));
         } catch {
             setError('Failed to delete item');
@@ -101,7 +105,7 @@ const AdminMenu = () => {
         setError(null);
 
         try {
-            const response = await axios.put(`http://127.0.0.1:5000/api/menu/${editingItem.id}`, formData);
+            const response = await axios.put(`${API_BASE_URL}/menu/${editingItem.id}`, formData);
 
             if (response.status === 200) {
                 alert("Item updated successfully");
