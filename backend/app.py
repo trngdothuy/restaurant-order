@@ -14,7 +14,7 @@ load_dotenv()
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
-    CORS(app, origins=["http://localhost:3000"])
+    CORS(app, origins=["https://restaurant-order-site.onrender.com"])
 
     db.init_app(app)
     
