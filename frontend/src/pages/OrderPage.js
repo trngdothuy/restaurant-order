@@ -73,7 +73,7 @@ const OrderPage = () => {
     };
 
     return (
-        <div className="p-4 max-w-3xl mx-auto">
+        <div className="p-4 max-w- mx-auto">
             <h2 className="text-xl font-semibold mb-2">Order Summary</h2>
             {/* Render table with items, quantity, price, total... */}
             <div className="my-4">
@@ -87,7 +87,7 @@ const OrderPage = () => {
                 />
                 </label>
             </div>
-            {error && <p className="mb-2 text-red-600">{error}</p>}
+            {error && <p className="mb-2 text-green-600">{error}</p>}
             {message && <p className="mb-2 text-green-600">{message}</p>}
             {/* If order is empty */}
             {orderItems.length === 0 ? (
