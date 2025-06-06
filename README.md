@@ -1,4 +1,8 @@
-# 🌟 Vision for Our Restaurant Order Website
+![build](https://img.shields.io/github/actions/workflow/status/trngdothuy/restaurant-order/ci.yml)
+![last commit](https://img.shields.io/github/last-commit/trngdothuy/restaurant-order)
+![license](https://img.shields.io/github/license/trngdothuy/restaurant-order)
+
+# 🌟 Restaurant Ordering Web App
 
 ```bash
 It’s a:
@@ -6,7 +10,36 @@ It’s a:
 ✅ Customers scan a QR code at the table → order directly from their phone
 ✅ Kitchen/staff sees the order instantly
 ✅ Faster service, no waiting for staff to come over
+
+Client Type: Small restaurant or café that wants a modern, mobile-first digital ordering system
+Stack: React + TailwindCSS + FastAPI + Firebase
 ```
+
+```bash
+🛠️ Features Delivered:
+
+📋 Menu system with categories, items, and modifiers
+
+🛒 Order cart with real-time updates
+
+🔐 Login system using Firebase
+
+📦 Admin dashboard to manage items
+
+🌐 Fully responsive UI (mobile/tablet/desktop)
+
+🔐 Tech Highlights:
+- React + TypeScript frontend
+- FastAPI backend with RESTful architecture
+- Firebase authentication
+- Deployed with AWS
+- Easily extendable to Stripe/QR-based ordering
+
+
+```
+
+
+
 
 # 🏗️ Updated Architecture
 
